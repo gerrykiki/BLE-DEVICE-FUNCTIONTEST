@@ -49,7 +49,6 @@ static BlueToothObject *sharedInstance = nil;
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     switch (central.state) {
-            //12345
         case CBManagerStatePoweredOff:
             NSLog(@"BLE Power OFF");
             break;

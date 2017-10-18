@@ -33,20 +33,20 @@ static CommandData *sharedInstance = nil;
     if (self) {
         //initialization environment
         CommandTableArray = [[NSMutableArray alloc]init];
-        
+        TableItemArray = [[NSMutableArray alloc]init];
+        [TableItemArray addObject:@"Get Data"];
+        [TableItemArray addObject:@"Battery"];
+        [TableItemArray addObject:@"Reset"];
+        [TableItemArray addObject:@"Test Weight"];
+        [TableItemArray addObject:@"LED Remind"];
+        [TableItemArray addObject:@"Setting Pin Code"];
          
     }
     return self;
 }
 
-- (void)DataBaseBtn{
-    TableItemArray = [[NSMutableArray alloc]init];
-    [TableItemArray addObject:@"Get Data"];
-    [TableItemArray addObject:@"Battery"];
-    [TableItemArray addObject:@"Reset"];
-    [TableItemArray addObject:@"Test Weight"];
-    [TableItemArray addObject:@"LED Remind"];
-    [TableItemArray addObject:@"Setting Pin Code"];
+- (NSArray *)DataBaseBtn{
+    return TableItemArray;
 }
 
 - (NSString *)DataCommandBtn{

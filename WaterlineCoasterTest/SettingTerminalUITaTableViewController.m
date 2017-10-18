@@ -22,7 +22,7 @@
     [super viewDidLoad];
     TableItemArray = [[NSMutableArray alloc]init];
     commanddata = [CommandData sharedInstance];
-    [commanddata DataBaseBtn];
+   // [commanddata DataBaseBtn];
     [self CommamdString];
 }
 

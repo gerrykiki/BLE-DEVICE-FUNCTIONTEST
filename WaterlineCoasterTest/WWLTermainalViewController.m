@@ -9,6 +9,7 @@
 #import "WWLTermainalViewController.h"
 #import "TerminalCollectionViewCell.h"
 #import "SettingTerminalUITaTableViewController.h"
+#import "CommandData.h"
 
 @interface WWLTermainalViewController ()
 
@@ -27,6 +28,7 @@
     
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
+    itemArray = [[CommandData sharedInstance]DataBaseBtn];
     bluetoothobject = [BlueToothObject sharedInstance];
     State = @"NO";
     

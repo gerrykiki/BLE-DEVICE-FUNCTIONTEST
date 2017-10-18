@@ -14,7 +14,7 @@
 
 
 + (instancetype)sharedInstance;
-- (void)DataBaseBtn;
+- (NSArray *)DataBaseBtn;
 - (NSString *)ReturnTableArray:(int)indexArray;
 
 
