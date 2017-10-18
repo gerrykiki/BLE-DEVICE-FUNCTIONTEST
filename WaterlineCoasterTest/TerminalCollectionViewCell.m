@@ -10,4 +10,12 @@
 
 @implementation TerminalCollectionViewCell
 
+- (void)cellSetUpData:(NSString *)CellData
+{
+    NSLog(@"%@",CellData);
+    
+    self.CellTitle.text = CellData;
+    //self.CellTitle.adjustsFontSizeToFitWidth = YES;
+}
+
 @end

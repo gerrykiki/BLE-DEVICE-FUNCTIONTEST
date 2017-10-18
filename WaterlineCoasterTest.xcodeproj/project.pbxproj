@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		854A4BCF1F947A98000806D7 /* SettingTerminalUITaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BCE1F947A98000806D7 /* SettingTerminalUITaTableViewController.m */; };
+		854A4BD61F948343000806D7 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BD41F948343000806D7 /* SettingTableViewCell.m */; };
+		854A4BD71F948343000806D7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A4BD51F948343000806D7 /* SettingTableViewCell.xib */; };
+		854A4BDB1F958356000806D7 /* CommandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BDA1F958356000806D7 /* CommandData.m */; };
+		8551CF9F1F931E50000E64F1 /* TerminalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */; };
+		8551CFA21F932DA6000E64F1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */; };
+		8551CFA51F932F5F000E64F1 /* BlueToothObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8551CFA41F932F5F000E64F1 /* BlueToothObject.m */; };
+		858A2BAB1F92184E002EF05A /* WWLTermainalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 858A2BAA1F92184E002EF05A /* WWLTermainalViewController.m */; };
 		85BCE71E1F909FD7005C37A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BCE71D1F909FD7005C37A2 /* AppDelegate.m */; };
 		85BCE7211F909FD7005C37A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BCE7201F909FD7005C37A2 /* ViewController.m */; };
 		85BCE7241F909FD7005C37A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BCE7221F909FD7005C37A2 /* Main.storyboard */; };
@@ -35,6 +43,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		854A4BCD1F947A98000806D7 /* SettingTerminalUITaTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTerminalUITaTableViewController.h; sourceTree = "<group>"; };
+		854A4BCE1F947A98000806D7 /* SettingTerminalUITaTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTerminalUITaTableViewController.m; sourceTree = "<group>"; };
+		854A4BD31F948343000806D7 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		854A4BD41F948343000806D7 /* SettingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		854A4BD51F948343000806D7 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		854A4BD91F958356000806D7 /* CommandData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandData.h; sourceTree = "<group>"; };
+		854A4BDA1F958356000806D7 /* CommandData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandData.m; sourceTree = "<group>"; };
+		8551CF9D1F931E50000E64F1 /* TerminalCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TerminalCollectionViewCell.h; sourceTree = "<group>"; };
+		8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TerminalCollectionViewCell.m; sourceTree = "<group>"; };
+		8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		8551CFA31F932F5F000E64F1 /* BlueToothObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlueToothObject.h; sourceTree = "<group>"; };
+		8551CFA41F932F5F000E64F1 /* BlueToothObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueToothObject.m; sourceTree = "<group>"; };
+		858A2BA91F92184E002EF05A /* WWLTermainalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWLTermainalViewController.h; sourceTree = "<group>"; };
+		858A2BAA1F92184E002EF05A /* WWLTermainalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWLTermainalViewController.m; sourceTree = "<group>"; };
 		85BCE7191F909FD6005C37A2 /* WaterlineCoasterTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaterlineCoasterTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85BCE71C1F909FD6005C37A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		85BCE71D1F909FD7005C37A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8551CFA21F932DA6000E64F1 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8551CFA01F932DA5000E64F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		85BCE7101F909FD6005C37A2 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +116,7 @@
 				85BCE7341F909FD7005C37A2 /* WaterlineCoasterTestTests */,
 				85BCE73F1F909FD7005C37A2 /* WaterlineCoasterTestUITests */,
 				85BCE71A1F909FD6005C37A2 /* Products */,
+				8551CFA01F932DA5000E64F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +138,19 @@
 				85BCE71F1F909FD7005C37A2 /* ViewController.h */,
 				85BCE7201F909FD7005C37A2 /* ViewController.m */,
 				85BCE7221F909FD7005C37A2 /* Main.storyboard */,
+				854A4BD91F958356000806D7 /* CommandData.h */,
+				854A4BDA1F958356000806D7 /* CommandData.m */,
+				854A4BCD1F947A98000806D7 /* SettingTerminalUITaTableViewController.h */,
+				854A4BCE1F947A98000806D7 /* SettingTerminalUITaTableViewController.m */,
+				854A4BD31F948343000806D7 /* SettingTableViewCell.h */,
+				854A4BD41F948343000806D7 /* SettingTableViewCell.m */,
+				854A4BD51F948343000806D7 /* SettingTableViewCell.xib */,
+				8551CF9D1F931E50000E64F1 /* TerminalCollectionViewCell.h */,
+				8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */,
+				858A2BA91F92184E002EF05A /* WWLTermainalViewController.h */,
+				858A2BAA1F92184E002EF05A /* WWLTermainalViewController.m */,
+				8551CFA31F932F5F000E64F1 /* BlueToothObject.h */,
+				8551CFA41F932F5F000E64F1 /* BlueToothObject.m */,
 				85BCE7251F909FD7005C37A2 /* Assets.xcassets */,
 				85BCE7271F909FD7005C37A2 /* LaunchScreen.storyboard */,
 				85BCE72A1F909FD7005C37A2 /* Info.plist */,
@@ -240,6 +285,7 @@
 			files = (
 				85BCE7291F909FD7005C37A2 /* LaunchScreen.storyboard in Resources */,
 				85BCE7261F909FD7005C37A2 /* Assets.xcassets in Resources */,
+				854A4BD71F948343000806D7 /* SettingTableViewCell.xib in Resources */,
 				85BCE7241F909FD7005C37A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +311,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8551CF9F1F931E50000E64F1 /* TerminalCollectionViewCell.m in Sources */,
+				854A4BCF1F947A98000806D7 /* SettingTerminalUITaTableViewController.m in Sources */,
+				854A4BDB1F958356000806D7 /* CommandData.m in Sources */,
+				854A4BD61F948343000806D7 /* SettingTableViewCell.m in Sources */,
+				8551CFA51F932F5F000E64F1 /* BlueToothObject.m in Sources */,
 				85BCE7211F909FD7005C37A2 /* ViewController.m in Sources */,
+				858A2BAB1F92184E002EF05A /* WWLTermainalViewController.m in Sources */,
 				85BCE72C1F909FD7005C37A2 /* main.m in Sources */,
 				85BCE71E1F909FD7005C37A2 /* AppDelegate.m in Sources */,
 			);
@@ -370,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +471,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

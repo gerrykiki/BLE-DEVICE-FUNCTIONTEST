@@ -10,4 +10,17 @@
 
 @interface SettingTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *KeyTitle;
+@property (strong, nonatomic) IBOutlet UILabel *BtnName;
+@property (strong, nonatomic) IBOutlet UILabel *CommandName;
+@property (strong, nonatomic) IBOutlet UITextField *BtnField;
+@property (strong, nonatomic) IBOutlet UITextField *CommandField;
+@property (strong, nonatomic) IBOutlet UIButton *BtnSave;
+
+
++ (SettingTableViewCell *)cell;
+- (void) EditSize:(NSInteger)CellRaw;
+- (void) EditKeyTitle:(NSString *)TitleNumber;
+- (void) Editplaceholder:(NSString *)placeholdertext;
+
 @end

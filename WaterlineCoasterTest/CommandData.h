@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface CommandData : NSObject
+
+
+
++ (instancetype)sharedInstance;
+- (void)DataBaseBtn;
+- (NSString *)ReturnTableArray:(int)indexArray;
+
 
 @end

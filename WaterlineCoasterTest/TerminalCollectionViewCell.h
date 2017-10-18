@@ -10,4 +10,8 @@
 
 @interface TerminalCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *CellTitle;
+
+- (void)cellSetUpData:(NSString *)CellData;
+
 @end

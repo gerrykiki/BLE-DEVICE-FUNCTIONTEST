@@ -7,7 +7,59 @@
 //
 
 #import "CommandData.h"
+static CommandData *sharedInstance = nil;
 
-@implementation CommandData
+@implementation CommandData{
+    NSMutableArray *TableItemArray;
+    NSMutableArray *CommandTableArray;
+    NSString *teststring;
+}
+
++ (CommandData *)sharedInstance {
+    if (sharedInstance != nil) {
+        return sharedInstance;
+    }
+    
+    static dispatch_once_t pred;        // Lock
+    dispatch_once(&pred, ^{             // This code is called at most once per app
+        sharedInstance = [[CommandData alloc] init];
+    });
+    return sharedInstance;
+}
+
+- (instancetype)init {
+    self = [super init];
+    
+    if (self) {
+        //initialization environment
+        CommandTableArray = [[NSMutableArray alloc]init];
+        
+         
+    }
+    return self;
+}
+
+- (void)DataBaseBtn{
+    TableItemArray = [[NSMutableArray alloc]init];
+    [TableItemArray addObject:@"Get Data"];
+    [TableItemArray addObject:@"Battery"];
+    [TableItemArray addObject:@"Reset"];
+    [TableItemArray addObject:@"Test Weight"];
+    [TableItemArray addObject:@"LED Remind"];
+    [TableItemArray addObject:@"Setting Pin Code"];
+}
+
+- (NSString *)DataCommandBtn{
+    return @"41";
+}
+
+- (NSString *)ReturnTableArray:(int)indexArray{
+    if (TableItemArray.count < indexArray + 1) {
+        return @"";
+    }
+    else return [TableItemArray objectAtIndex:indexArray];
+}
+
+
 
 @end

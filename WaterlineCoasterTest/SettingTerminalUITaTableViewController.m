@@ -7,22 +7,33 @@
 //
 
 #import "SettingTerminalUITaTableViewController.h"
+#import "SettingTableViewCell.h"
 
 @interface SettingTerminalUITaTableViewController ()
 
 @end
 
-@implementation SettingTerminalUITaTableViewController
+@implementation SettingTerminalUITaTableViewController{
+    NSMutableArray *TableItemArray;
+}
+@synthesize commanddata;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    TableItemArray = [[NSMutableArray alloc]init];
+    commanddata = [CommandData sharedInstance];
+    [commanddata DataBaseBtn];
+    [self CommamdString];
 }
+
+- (void) CommamdString{
+    int i;
+    for (i = 0; i < 12; i++) {
+        NSLog(@"%@",[commanddata ReturnTableArray:i]);
+        [TableItemArray addObject:[commanddata ReturnTableArray:i]];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -33,23 +44,31 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    return 12;
 }
 
-/*
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    [tableView setSeparatorColor:[UIColor clearColor]];
+    SettingTableViewCell *cell = [SettingTableViewCell cell];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell EditSize:indexPath.row];
+    [cell EditKeyTitle:[NSString stringWithFormat:@"%ld",indexPath.row + 1]];
+    if (indexPath.row + 1 > TableItemArray.count) {
+        
+    }
+    else [cell Editplaceholder:[TableItemArray objectAtIndex:indexPath.row]];
     return cell;
 }
-*/
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath{
+    return 200;
+}
 
 /*
 // Override to support conditional editing of the table view.
