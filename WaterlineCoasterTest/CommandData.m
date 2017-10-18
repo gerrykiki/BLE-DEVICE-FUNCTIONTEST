@@ -7,6 +7,7 @@
 //
 
 #import "CommandData.h"
+#import "DataBaseObject.h"
 static CommandData *sharedInstance = nil;
 
 @implementation CommandData{
@@ -40,10 +41,18 @@ static CommandData *sharedInstance = nil;
         [TableItemArray addObject:@"Test Weight"];
         [TableItemArray addObject:@"LED Remind"];
         [TableItemArray addObject:@"Setting Pin Code"];
-         
+        for (int i=1; i < 15; i++) {
+            [[DataBaseObject sharedInstance]addcommandName:[NSString stringWithFormat:@"Btn %d",i]];
+        }
+        for (int i=1; i <= TableItemArray.count; i++) {
+            [[DataBaseObject sharedInstance]UpdateTheCommandName:[TableItemArray objectAtIndex:i-1] keynumber:[NSString stringWithFormat:@"Btn %d",i]];
+        }
     }
     return self;
 }
+
+
+
 
 - (NSArray *)DataBaseBtn{
     return TableItemArray;

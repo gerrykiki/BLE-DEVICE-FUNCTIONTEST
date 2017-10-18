@@ -11,6 +11,8 @@
 		854A4BD61F948343000806D7 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BD41F948343000806D7 /* SettingTableViewCell.m */; };
 		854A4BD71F948343000806D7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A4BD51F948343000806D7 /* SettingTableViewCell.xib */; };
 		854A4BDB1F958356000806D7 /* CommandData.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BDA1F958356000806D7 /* CommandData.m */; };
+		854A4BE01F9774CD000806D7 /* DataBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BDF1F9774CD000806D7 /* DataBaseObject.m */; };
+		854A4BE21F9774EB000806D7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 854A4BE11F9774EB000806D7 /* libsqlite3.tbd */; };
 		8551CF9F1F931E50000E64F1 /* TerminalCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */; };
 		8551CFA21F932DA6000E64F1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */; };
 		8551CFA51F932F5F000E64F1 /* BlueToothObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 8551CFA41F932F5F000E64F1 /* BlueToothObject.m */; };
@@ -50,6 +52,9 @@
 		854A4BD51F948343000806D7 /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		854A4BD91F958356000806D7 /* CommandData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommandData.h; sourceTree = "<group>"; };
 		854A4BDA1F958356000806D7 /* CommandData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommandData.m; sourceTree = "<group>"; };
+		854A4BDE1F9774CD000806D7 /* DataBaseObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataBaseObject.h; sourceTree = "<group>"; };
+		854A4BDF1F9774CD000806D7 /* DataBaseObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataBaseObject.m; sourceTree = "<group>"; };
+		854A4BE11F9774EB000806D7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8551CF9D1F931E50000E64F1 /* TerminalCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TerminalCollectionViewCell.h; sourceTree = "<group>"; };
 		8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TerminalCollectionViewCell.m; sourceTree = "<group>"; };
 		8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
@@ -80,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854A4BE21F9774EB000806D7 /* libsqlite3.tbd in Frameworks */,
 				8551CFA21F932DA6000E64F1 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +110,7 @@
 		8551CFA01F932DA5000E64F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				854A4BE11F9774EB000806D7 /* libsqlite3.tbd */,
 				8551CFA11F932DA5000E64F1 /* CoreBluetooth.framework */,
 			);
 			name = Frameworks;
@@ -149,6 +156,8 @@
 				8551CF9E1F931E50000E64F1 /* TerminalCollectionViewCell.m */,
 				858A2BA91F92184E002EF05A /* WWLTermainalViewController.h */,
 				858A2BAA1F92184E002EF05A /* WWLTermainalViewController.m */,
+				854A4BDE1F9774CD000806D7 /* DataBaseObject.h */,
+				854A4BDF1F9774CD000806D7 /* DataBaseObject.m */,
 				8551CFA31F932F5F000E64F1 /* BlueToothObject.h */,
 				8551CFA41F932F5F000E64F1 /* BlueToothObject.m */,
 				85BCE7251F909FD7005C37A2 /* Assets.xcassets */,
@@ -318,6 +327,7 @@
 				8551CFA51F932F5F000E64F1 /* BlueToothObject.m in Sources */,
 				85BCE7211F909FD7005C37A2 /* ViewController.m in Sources */,
 				858A2BAB1F92184E002EF05A /* WWLTermainalViewController.m in Sources */,
+				854A4BE01F9774CD000806D7 /* DataBaseObject.m in Sources */,
 				85BCE72C1F909FD7005C37A2 /* main.m in Sources */,
 				85BCE71E1F909FD7005C37A2 /* AppDelegate.m in Sources */,
 			);

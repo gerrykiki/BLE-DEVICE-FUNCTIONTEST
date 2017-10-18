@@ -29,8 +29,8 @@
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
     itemArray = [[CommandData sharedInstance]DataBaseBtn];
-    bluetoothobject = [BlueToothObject sharedInstance];
-    State = @"NO";
+  //  bluetoothobject = [BlueToothObject sharedInstance];
+    State = @"YES";
     
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"設定" style:UIBarButtonItemStylePlain target:self action:@selector(SettingTerminal)];
     self.navigationItem.rightBarButtonItem = rightBtn;
