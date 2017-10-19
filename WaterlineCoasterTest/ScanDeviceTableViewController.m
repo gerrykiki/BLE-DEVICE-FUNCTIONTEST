@@ -97,6 +97,7 @@
     //[cell EditKeyTitle:[NSString stringWithFormat:@"%ld",indexPath.row + 1]];
 
     ScanCoasterTableViewCell *cell = [ScanCoasterTableViewCell cell];
+    
     for (int i = 0; i<itemarray.count; i++) {
         [cell EditCellString:[itemarray objectAtIndex:i]];
     }

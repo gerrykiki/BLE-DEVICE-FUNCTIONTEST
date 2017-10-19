@@ -31,6 +31,7 @@ static BlueToothObject *sharedInstance = nil;
         CenterManageArray = [[NSMutableArray alloc]init];
         DeviceInfoArray = [[NSMutableArray alloc]init];
         restServices = [[NSMutableArray alloc]init];
+        ChangeCupMode = NO;
     }
     return self;
 }
@@ -48,7 +49,6 @@ static BlueToothObject *sharedInstance = nil;
     if (ConnectTime == nil) {
         ConnectTime =  [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(TimeUpaction:) userInfo:nil repeats:YES];
     }
-
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
@@ -123,7 +123,7 @@ static BlueToothObject *sharedInstance = nil;
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"Peropheral Name = %@",peripheral.name);
     NSMutableDictionary *DeviceInfo = [[NSMutableDictionary alloc]init];
-
+    
     if ([peripheral.name isEqualToString:@"Whala_Drink"]) {
         //需加入檢查連線狀態
         NSLog(@"name is whala_drink");
@@ -145,7 +145,6 @@ static BlueToothObject *sharedInstance = nil;
         [DeviceInfoArray addObject:DeviceInfo];
         [CenterManageArray addObject:peripheral];
         //[CenterManage connectPeripheral:peripheral options:nil];
-        
     }
      
 }
@@ -174,7 +173,7 @@ static BlueToothObject *sharedInstance = nil;
     
     NSLog(@"Disconnected: %@",peripheral.name);
     [self BLEConnectState:@"NO"];
-    //  [self StartScan];
+  [self StartScan];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(nullable NSError *)error {
@@ -219,7 +218,11 @@ static BlueToothObject *sharedInstance = nil;
             NSLog(@"When bluetooth data update");
         }
     }
-    [self SettingFunctionCode:@"SetTime" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
+   // [self SettingFunctionCode:@"SetTime" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
+    if (ChangeCupMode) {
+        [self SettingFunctionCode:@"SettingDevice" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
+        ChangeCupMode = NO;
+    }
 }
 
 // Invoked when a spec'd characteristic's state changes

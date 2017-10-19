@@ -24,6 +24,8 @@
     int DrinkTime2;
     int PowerCode;
     int EndCode;
+    
+    BOOL ChangeCupMode;
 }
 
 @property (nonatomic, strong) CBCentralManager *CenterManage;
