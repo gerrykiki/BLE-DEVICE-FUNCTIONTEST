@@ -15,7 +15,7 @@
 @interface WWLTermainalViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
 }
 
-@property (strong ,nonatomic) NSString *State;
+
 @property (strong ,nonatomic) NSString *ConnectName;
 
 @property (strong ,nonatomic) UITextView *RawDataTerminal;

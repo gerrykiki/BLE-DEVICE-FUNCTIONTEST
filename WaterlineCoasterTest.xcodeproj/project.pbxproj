@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853E1B571F982CF4004715FB /* ScanDeviceTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E1B561F982CF4004715FB /* ScanDeviceTableViewController.m */; };
+		853E1B5B1F9837E2004715FB /* ScanCoasterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 853E1B591F9837E2004715FB /* ScanCoasterTableViewCell.m */; };
+		853E1B5C1F9837E2004715FB /* ScanCoasterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853E1B5A1F9837E2004715FB /* ScanCoasterTableViewCell.xib */; };
 		854A4BCF1F947A98000806D7 /* SettingTerminalUITaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BCE1F947A98000806D7 /* SettingTerminalUITaTableViewController.m */; };
 		854A4BD61F948343000806D7 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854A4BD41F948343000806D7 /* SettingTableViewCell.m */; };
 		854A4BD71F948343000806D7 /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A4BD51F948343000806D7 /* SettingTableViewCell.xib */; };
@@ -45,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		853E1B551F982CF4004715FB /* ScanDeviceTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanDeviceTableViewController.h; sourceTree = "<group>"; };
+		853E1B561F982CF4004715FB /* ScanDeviceTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanDeviceTableViewController.m; sourceTree = "<group>"; };
+		853E1B581F9837E2004715FB /* ScanCoasterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanCoasterTableViewCell.h; sourceTree = "<group>"; };
+		853E1B591F9837E2004715FB /* ScanCoasterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanCoasterTableViewCell.m; sourceTree = "<group>"; };
+		853E1B5A1F9837E2004715FB /* ScanCoasterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanCoasterTableViewCell.xib; sourceTree = "<group>"; };
 		854A4BCD1F947A98000806D7 /* SettingTerminalUITaTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTerminalUITaTableViewController.h; sourceTree = "<group>"; };
 		854A4BCE1F947A98000806D7 /* SettingTerminalUITaTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingTerminalUITaTableViewController.m; sourceTree = "<group>"; };
 		854A4BD31F948343000806D7 /* SettingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
@@ -145,6 +153,11 @@
 				85BCE71F1F909FD7005C37A2 /* ViewController.h */,
 				85BCE7201F909FD7005C37A2 /* ViewController.m */,
 				85BCE7221F909FD7005C37A2 /* Main.storyboard */,
+				853E1B551F982CF4004715FB /* ScanDeviceTableViewController.h */,
+				853E1B561F982CF4004715FB /* ScanDeviceTableViewController.m */,
+				853E1B581F9837E2004715FB /* ScanCoasterTableViewCell.h */,
+				853E1B591F9837E2004715FB /* ScanCoasterTableViewCell.m */,
+				853E1B5A1F9837E2004715FB /* ScanCoasterTableViewCell.xib */,
 				854A4BD91F958356000806D7 /* CommandData.h */,
 				854A4BDA1F958356000806D7 /* CommandData.m */,
 				854A4BCD1F947A98000806D7 /* SettingTerminalUITaTableViewController.h */,
@@ -295,6 +308,7 @@
 				85BCE7291F909FD7005C37A2 /* LaunchScreen.storyboard in Resources */,
 				85BCE7261F909FD7005C37A2 /* Assets.xcassets in Resources */,
 				854A4BD71F948343000806D7 /* SettingTableViewCell.xib in Resources */,
+				853E1B5C1F9837E2004715FB /* ScanCoasterTableViewCell.xib in Resources */,
 				85BCE7241F909FD7005C37A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,10 +335,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8551CF9F1F931E50000E64F1 /* TerminalCollectionViewCell.m in Sources */,
+				853E1B571F982CF4004715FB /* ScanDeviceTableViewController.m in Sources */,
 				854A4BCF1F947A98000806D7 /* SettingTerminalUITaTableViewController.m in Sources */,
 				854A4BDB1F958356000806D7 /* CommandData.m in Sources */,
 				854A4BD61F948343000806D7 /* SettingTableViewCell.m in Sources */,
 				8551CFA51F932F5F000E64F1 /* BlueToothObject.m in Sources */,
+				853E1B5B1F9837E2004715FB /* ScanCoasterTableViewCell.m in Sources */,
 				85BCE7211F909FD7005C37A2 /* ViewController.m in Sources */,
 				858A2BAB1F92184E002EF05A /* WWLTermainalViewController.m in Sources */,
 				854A4BE01F9774CD000806D7 /* DataBaseObject.m in Sources */,

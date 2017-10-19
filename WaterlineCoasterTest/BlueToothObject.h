@@ -32,6 +32,7 @@
 @property (nonatomic, strong) CBCharacteristic *AcceptCharacteristic;
 @property (nonatomic, strong) NSMutableArray *restServices;
 @property (nonatomic, strong) CBPeripheral *ConnectPeripheral;
+@property (nonatomic, strong) NSMutableArray *DeviceInfoArray;
 
 @property (nonatomic, strong) NSTimer *ConnectTime;
 
@@ -41,5 +42,6 @@
 - (void)SettingFunctionCode:(NSString *)FunctionCodeKey RemindTime:(NSNumber *)remindtime PingCode:(NSString *)pingcode;
 - (void)TimeStop;
 - (void)BLEDisConnect;
+- (void)ConnectToDevice:(NSInteger)index;
 
 @end

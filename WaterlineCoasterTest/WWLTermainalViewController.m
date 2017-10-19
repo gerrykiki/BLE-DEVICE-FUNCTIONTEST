@@ -17,11 +17,8 @@
 
 @implementation WWLTermainalViewController{
     NSArray *itemArray;
-    UIView *navigationview;
-    UILabel *titleLabel;
-    UIView *blackview;
 }
-@synthesize RawDataTerminal,OutDataTermainal,cellitemarray,collectionView,bluetoothobject,RowDataTerminal,AnalysisDataTerminal,State,ConnectName;
+@synthesize RawDataTerminal,OutDataTermainal,cellitemarray,collectionView,bluetoothobject,RowDataTerminal,AnalysisDataTerminal,ConnectName;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -29,43 +26,25 @@
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
   //  itemArray = @[@"Connect Device", @"DrinkWater", @"Power", @"Reset", @"Test",@"Remind",@"Set PingCode"];
     itemArray = [[CommandData sharedInstance]DataBaseBtn];
-  //  bluetoothobject = [BlueToothObject sharedInstance];
-    State = @"YES";
+    bluetoothobject = [BlueToothObject sharedInstance];
     
     UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"設定" style:UIBarButtonItemStylePlain target:self action:@selector(SettingTerminal)];
     self.navigationItem.rightBarButtonItem = rightBtn;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(DrinkDataAccept:) //接收到該Notification時要call的function
+                                             selector:@selector(DrinkDataAccept:)
                                                  name:@"CoasterData"
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(RowData:) //接收到該Notification時要call的function
+                                             selector:@selector(RowData:)
                                                  name:@"CoasterRowData"
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(BLEState:) //接收到該Notification時要call的function
-                                                 name:@"ConnectState"
-                                               object:nil];
+    
+    self.navigationItem.title = @"連線中";
     // Do any additional setup after loading the view.
 }
-
-- (void)AddblackView{
-    if (blackview == nil) {
-        blackview = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-        blackview.backgroundColor = [UIColor blackColor];
-        blackview.alpha = 0.4f;
-        [blackview becomeFirstResponder];
-    }
-    [self.view addSubview:blackview];
-}
-
-- (void)removeblackview{
-    [blackview removeFromSuperview];
-}
-
 
 - (void)viewDidAppear:(BOOL)animated{
     UIView *linetop = [[UIView alloc]initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width,1)];
@@ -80,12 +59,10 @@
     [lineBot setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:lineBot];
     [collectionView setFrame:CGRectMake(0, RowDataTerminal.bounds.size.height + 67 + AnalysisDataTerminal.bounds.size.height, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - (RowDataTerminal.bounds.size.height + 66 + AnalysisDataTerminal.bounds.size.height))];
-    if ([State isEqualToString:@"NO"]) {
-        [bluetoothobject StartBLEDevice];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    /*
     if ([State isEqualToString:@"NO"]) {
         navigationview = [[UIView alloc]initWithFrame:CGRectMake(10, 0, 150, 44)];
         titleLabel=[[UILabel alloc] initWithFrame:CGRectMake(0,0,300,44)];
@@ -99,10 +76,10 @@
         titleLabel.text = [NSString stringWithFormat:@"連線狀態：已連線 %@",ConnectName];
         [self.navigationController.navigationBar addSubview:navigationview];
     }
+     */
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
-    [navigationview removeFromSuperview];
     [bluetoothobject TimeStop];
 }
 
@@ -220,24 +197,6 @@
     NSLog(@"RowData = %@",RowData);
     [self WriteRowTerminal:RowData];
 }
-
-- (void)BLEState:(NSNotification *)BLEstate{
-    NSDictionary * Connectstate = [BLEstate userInfo];
-    State = [Connectstate objectForKey:@"BLEState"];
-    ConnectName = [Connectstate objectForKey:@"BLEName"];
-    if ([State isEqualToString:@"YES"]) {
-    //    titleLabel.text = @"連線狀態：已連線";
-        titleLabel.text = [NSString stringWithFormat:@"連線狀態：已連線 %@",ConnectName];
-        [self removeblackview];
-    }
-    else if ([State isEqualToString:@"NO"]){
-        titleLabel.text = @"連線狀態：未連線";
-    }
-    else {
-        titleLabel.text = @"Error";
-    }
-}
-
 
 - (void)WriteTerminal:(NSString *)command{
     AnalysisDataTerminal.text=[AnalysisDataTerminal.text stringByAppendingFormat:@"%@\n",command];

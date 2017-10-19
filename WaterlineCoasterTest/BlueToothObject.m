@@ -10,7 +10,7 @@
 
 static BlueToothObject *sharedInstance = nil;
 @implementation BlueToothObject
-@synthesize CenterManage,CenterManageArray,talkingCharacteristic,AcceptCharacteristic,restServices,ConnectPeripheral,ConnectTime;
+@synthesize CenterManage,CenterManageArray,talkingCharacteristic,AcceptCharacteristic,restServices,ConnectPeripheral,ConnectTime,DeviceInfoArray;
 + (BlueToothObject *)sharedInstance {
     if (sharedInstance != nil) {
         return sharedInstance;
@@ -29,6 +29,7 @@ static BlueToothObject *sharedInstance = nil;
     if (self) {
         //initialization environment
         CenterManageArray = [[NSMutableArray alloc]init];
+        DeviceInfoArray = [[NSMutableArray alloc]init];
         restServices = [[NSMutableArray alloc]init];
     }
     return self;
@@ -37,14 +38,17 @@ static BlueToothObject *sharedInstance = nil;
 - (void)StartBLEDevice{
     
     [CenterManageArray removeAllObjects];
+    [DeviceInfoArray removeAllObjects];
     if (CenterManage == nil) {
         CenterManage = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     }
     else [self StartScan];
     restServices = [NSMutableArray new];
+    
     if (ConnectTime == nil) {
-        ConnectTime =  [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(TimeUpaction:) userInfo:nil repeats:NO];
+        ConnectTime =  [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(TimeUpaction:) userInfo:nil repeats:YES];
     }
+
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
@@ -84,6 +88,10 @@ static BlueToothObject *sharedInstance = nil;
     }
 }
 
+- (void)ConnectToDevice:(NSInteger)index{
+    [CenterManage connectPeripheral:[CenterManageArray objectAtIndex:index] options:nil];
+}
+
 - (void)TimeUpaction:(NSTimer *)sender {
     [self StopScan];
     NSLog(@"TimeUp");
@@ -91,11 +99,14 @@ static BlueToothObject *sharedInstance = nil;
         [ConnectTime invalidate];
         ConnectTime = nil;
     }
+    /*
     if (CenterManageArray.count == 1) {
         CBPeripheral *correctperipheral = [CenterManageArray firstObject];
         [CenterManage connectPeripheral:correctperipheral options:nil];
     }
     else [self NotifictionData:@"MultipleDevice"];
+     */
+    [self ScanDevice:DeviceInfoArray];
     //0:以連線 1:目前周邊沒有任何裝置 2:目前周邊有多個裝置 3:目前周邊沒有對應的裝置
     
 }
@@ -111,24 +122,33 @@ static BlueToothObject *sharedInstance = nil;
 #pragma mark BlueTooth Connect & Scane
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"Peropheral Name = %@",peripheral.name);
+    NSMutableDictionary *DeviceInfo = [[NSMutableDictionary alloc]init];
+
     if ([peripheral.name isEqualToString:@"Whala_Drink"]) {
         //需加入檢查連線狀態
         NSLog(@"name is whala_drink");
+        [DeviceInfo setObject:peripheral.name forKey:@"devicename"];
+        [DeviceInfo setObject:[peripheral.identifier UUIDString] forKey:@"deviceidentifier"];
+        [DeviceInfo setObject:RSSI forKey:@"DevcieRSSI"];
+        [DeviceInfoArray addObject:DeviceInfo];
         [CenterManageArray addObject:peripheral];
+        //[CenterManageArray addObject:peripheral];
        // [CenterManage connectPeripheral:peripheral options:nil];
     }
     
     else if ([peripheral.name isEqualToString:@"Whala"]) {
         //需加入檢查連線狀態
         NSLog(@"name is whala");
+        [DeviceInfo setObject:peripheral.name forKey:@"devicename"];
+        [DeviceInfo setObject:[peripheral.identifier UUIDString] forKey:@"deviceidentifier"];
+        [DeviceInfo setObject:RSSI forKey:@"DevcieRSSI"];
+        [DeviceInfoArray addObject:DeviceInfo];
         [CenterManageArray addObject:peripheral];
-        [CenterManage connectPeripheral:peripheral options:nil];
+        //[CenterManage connectPeripheral:peripheral options:nil];
+        
     }
      
 }
-
-
-
 
 #pragma Connect Peripheral
 
@@ -458,7 +478,7 @@ static BlueToothObject *sharedInstance = nil;
 - (void)NotifictionData:(NSString *)Data{
     NSMutableDictionary *Coasteraccept = [[NSMutableDictionary alloc]init];
     [Coasteraccept setValue:Data forKey:@"Data"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CoasterData" //Notification以一個字串(Name)下去辨別
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CoasterData"
                                                         object:self
                                                       userInfo:Coasteraccept];
 }
@@ -475,10 +495,19 @@ static BlueToothObject *sharedInstance = nil;
     NSMutableDictionary *State = [[NSMutableDictionary alloc]init];
     [State setValue:ConnectState forKey:@"BLEState"];
     [State setValue:ConnectPeripheral.name forKey:@"BLEName"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectState" //Notification以一個字串(Name)下去辨別
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ConnectState"
                                                         object:self
                                                       userInfo:State];
 }
+
+- (void)ScanDevice:(NSArray *)Device{
+    NSMutableDictionary *devicearray = [[NSMutableDictionary alloc]init];
+    [devicearray setObject:Device forKey:@"devicearray"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Device"
+                                                        object:self
+                                                      userInfo:devicearray];
+}
+
 
 - (void)TimeToDrinkData:(NSTimer *)sander{
     [self SettingFunctionCode:@"DataDrink" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
