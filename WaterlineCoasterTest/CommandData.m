@@ -41,6 +41,9 @@ static CommandData *sharedInstance = nil;
         [TableItemArray addObject:@"Test Weight"];
         [TableItemArray addObject:@"LED Remind"];
         [TableItemArray addObject:@"Setting Pin Code"];
+        [TableItemArray addObject:@"Checkpingcode"];
+        [TableItemArray addObject:@"SettingDevice"];
+        
         for (int i=1; i < 15; i++) {
             [[DataBaseObject sharedInstance]addcommandName:[NSString stringWithFormat:@"Btn %d",i]];
         }

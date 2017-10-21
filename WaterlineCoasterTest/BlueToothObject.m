@@ -218,7 +218,7 @@ static BlueToothObject *sharedInstance = nil;
             NSLog(@"When bluetooth data update");
         }
     }
-   // [self SettingFunctionCode:@"SetTime" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
+    [self SettingFunctionCode:@"SetTime" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
     if (ChangeCupMode) {
         [self SettingFunctionCode:@"SettingDevice" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
         ChangeCupMode = NO;
@@ -298,17 +298,17 @@ static BlueToothObject *sharedInstance = nil;
             NSLog(@"Ping Code Incorrect");
             [self NotifictionData:@"PingCode Incorrect"];
         }
+        else if (DeviceFunctionCode == 6){
+            //DrinkWater Value
+            int TotalDR = DrinkWaterCode1*DrinkWaterCode2;
+            [self NotifictionData:[NSString stringWithFormat:@"Waterline Coaster Data is %d Time is %@",TotalDR,Date]];
+            
+        }
         else if (DeviceFunctionCode == 7){
             //DrinkWater Value
             //controltext.text = @"Finash the drink data";
             [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(TimeToDrinkData:) userInfo:nil repeats:NO];
             [self NotifictionData:@"Finish"];
-        }
-        else if (DeviceFunctionCode == 6){
-            //DrinkWater Value
-            int TotalDR = DrinkWaterCode1*DrinkWaterCode2;
-            [self NotifictionData:[NSString stringWithFormat:@"Waterline Coaster Data is %d Time is %@",TotalDR,Date]];
-
         }
         else if (DeviceFunctionCode == 8){
             //PowerValue for Device
