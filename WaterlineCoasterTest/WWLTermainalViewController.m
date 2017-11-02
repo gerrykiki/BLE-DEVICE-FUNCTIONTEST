@@ -124,10 +124,13 @@
             [bluetoothobject SettingFunctionCode:@"SettingDevice" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         case 8:
+            [bluetoothobject SettingFunctionCode:@"ChangeCup" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         case 9:
+            [bluetoothobject SettingFunctionCode:@"Version" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         case 10:
+            [bluetoothobject SettingFunctionCode:@"DFUmode" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         case 11:
             break;

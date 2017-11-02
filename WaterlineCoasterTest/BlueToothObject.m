@@ -147,6 +147,7 @@ static BlueToothObject *sharedInstance = nil;
         //[CenterManage connectPeripheral:peripheral options:nil];
     }
      
+    NSLog(@"%@",advertisementData);
 }
 
 #pragma Connect Peripheral
@@ -319,6 +320,12 @@ static BlueToothObject *sharedInstance = nil;
         else if (DeviceFunctionCode == 9){
             //ChangeCup complete
         }
+        else if (DeviceFunctionCode == 97){
+            //Version
+            //Version
+            NSString *version = [NSString stringWithFormat:@"V%d.%02d",YearCode,MonthCode];
+            NSLog(@"%@",version);
+        }
         else if (DeviceFunctionCode == 98){
             //Device Setting Done
             NSLog(@"Device Setting Done");
@@ -470,6 +477,8 @@ static BlueToothObject *sharedInstance = nil;
     [FunctionCodeMenu setValue:@"7" forKey:@"PowerValue"];
     [FunctionCodeMenu setValue:@"8" forKey:@"ChangeCup"];
     [FunctionCodeMenu setValue:@"9" forKey:@"DisconnectBLE"];
+    [FunctionCodeMenu setValue:@"11" forKey:@"DFUmode"];
+    [FunctionCodeMenu setValue:@"97" forKey:@"Version"];
     [FunctionCodeMenu setValue:@"98" forKey:@"SettingDevice"];
     [FunctionCodeMenu setValue:@"99" forKey:@"ResetDevice"];
     SettingFunction = [NSString stringWithFormat:@"%02x",[[FunctionCodeMenu objectForKey:FunctionCodeKey]intValue]];
