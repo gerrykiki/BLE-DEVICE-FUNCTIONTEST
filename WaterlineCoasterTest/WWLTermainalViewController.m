@@ -133,6 +133,7 @@
             [bluetoothobject SettingFunctionCode:@"DFUmode" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         case 11:
+            [bluetoothobject SettingFunctionCode:@"DataHistory" RemindTime:[NSNumber numberWithInt:20] PingCode:[NSString stringWithFormat:@"%d",20]];
             break;
         default:
             break;

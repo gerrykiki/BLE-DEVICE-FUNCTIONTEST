@@ -301,14 +301,14 @@ static BlueToothObject *sharedInstance = nil;
         }
         else if (DeviceFunctionCode == 6){
             //DrinkWater Value
-            int TotalDR = DrinkWaterCode1*DrinkWaterCode2;
+            int TotalDR = DrinkWaterCode1*256+DrinkWaterCode2;
             [self NotifictionData:[NSString stringWithFormat:@"Waterline Coaster Data is %d Time is %@",TotalDR,Date]];
             
         }
         else if (DeviceFunctionCode == 7){
             //DrinkWater Value
             //controltext.text = @"Finash the drink data";
-            [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(TimeToDrinkData:) userInfo:nil repeats:NO];
+            //[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(TimeToDrinkData:) userInfo:nil repeats:NO];
             [self NotifictionData:@"Finish"];
         }
         else if (DeviceFunctionCode == 8){
@@ -335,6 +335,10 @@ static BlueToothObject *sharedInstance = nil;
             NSLog(@"Device Reset");
             [self NotifictionData:@"Device Reset"];
         }
+    }
+    else if (startCode == 0){
+        int TotalDR = DrinkWaterCode1*256+DrinkWaterCode2;
+        [self NotifictionData:[NSString stringWithFormat:@"Waterline Coaster Data is %d Time is %@",TotalDR,Date]];
     }
     else{
         //NSLog(@"Fail");
@@ -478,6 +482,7 @@ static BlueToothObject *sharedInstance = nil;
     [FunctionCodeMenu setValue:@"8" forKey:@"ChangeCup"];
     [FunctionCodeMenu setValue:@"9" forKey:@"DisconnectBLE"];
     [FunctionCodeMenu setValue:@"11" forKey:@"DFUmode"];
+    [FunctionCodeMenu setValue:@"55" forKey:@"DataHistory"];
     [FunctionCodeMenu setValue:@"97" forKey:@"Version"];
     [FunctionCodeMenu setValue:@"98" forKey:@"SettingDevice"];
     [FunctionCodeMenu setValue:@"99" forKey:@"ResetDevice"];
@@ -498,7 +503,7 @@ static BlueToothObject *sharedInstance = nil;
 - (void)NotifictionRowData:(NSString *)Data{
     NSMutableDictionary *CoasteracceptRowData = [[NSMutableDictionary alloc]init];
     [CoasteracceptRowData setValue:Data forKey:@"Data"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CoasterRowData" //Notification以一個字串(Name)下去辨別
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"CoasterRowData"
                                                         object:self
                                                       userInfo:CoasteracceptRowData];
 }

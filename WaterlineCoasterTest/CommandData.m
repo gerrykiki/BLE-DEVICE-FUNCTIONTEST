@@ -46,6 +46,8 @@ static CommandData *sharedInstance = nil;
         [TableItemArray addObject:@"ChangeCup"];
         [TableItemArray addObject:@"Version"];
         [TableItemArray addObject:@"DFUmode"];
+        [TableItemArray addObject:@"DataHistory"];
+        
         
         for (int i=1; i < 15; i++) {
             [[DataBaseObject sharedInstance]addcommandName:[NSString stringWithFormat:@"Btn %d",i]];
